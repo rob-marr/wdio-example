@@ -4,10 +4,11 @@
   "description": "an example project for wdio",
   "main": "server.js",
   "scripts": {
+    "install:old": "npx node@8 $(which npm) i",
     "lint": "eslint . --ignore-path .gitignore",
     "reset": "git clean -dXf && npm i",
     "clean": "rimraf reports/",
-    "test": "wdio",
+    "test": "npx node@8 $(which wdio)",
     "dev": "wdio --watch",
     "report": "run-s clean && run-p report:lint report:allure",
     "report:lint": "npm run lint -- -f node_modules/eslint-html-reporter/reporter.js -o reports/linting/index.html",
