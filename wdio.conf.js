@@ -24,15 +24,21 @@ exports.config = Object.assign({
   exclude: [],
   maxInstances: 2,
   baseUrl,
-  host: 'hub.docker.loveholidays.com',
-  port: 4444,
-  capabilities: [{
-    browserName: 'chrome',
-    chromeOptions: {
-      // disables ssl warnings for dev envs
-      args: ['disable-web-security']
+  host: 'localhost',
+  capabilities: [
+    {
+      browserName: 'chrome',
+      'goog:chromeOptions': {
+        args: ['--headless']
+      }
+    },
+    {
+      browserName: 'firefox',
+      "moz:firefoxOptions": {
+        args: ['-headless']
+      }
     }
-  }],
+  ],
   logLevel: 'silent',
   coloredLogs: true,
   screenshotPath: 'reports/screenshots',
